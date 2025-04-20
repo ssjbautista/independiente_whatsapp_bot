@@ -2,6 +2,7 @@ from serp_scraper import obtener_fixture_independiente
 from twilio.rest import Client
 from datetime import datetime
 import re
+import os
 
 # Traducción manual de días abreviados
 dias_es = {
@@ -30,12 +31,12 @@ def enviar_recordatorio():
     if not partidos:
         return
 
-    account_sid = "AC9598ee9a8ff34a563cfde86498bedf46"
-    auth_token = "45b1b5a260bbd63337bab43c54c25e87"
+    account_sid = account_sid = os.getenv("TWILIO_SID")
+    auth_token = os.getenv("TWILIO_TOKEN"
     client = Client(account_sid, auth_token)
 
     remitente = "whatsapp:+14155238886"
-    destinatario = "whatsapp:+5491156025344"
+    destinatario = os.getenv("TWILIO_TO")
 
     hoy = datetime.now().date()
 
