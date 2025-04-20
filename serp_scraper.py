@@ -1,7 +1,8 @@
 import requests
+import os
 
 def obtener_fixture_independiente():
-    api_key = "b542e28fb1213be0b91911964158008785c373486679ac7b2a4994e686eaa8ba"
+    api_key = os.getenv("SERPAPI_KEY")
     url = "https://serpapi.com/search"
 
     params = {
